@@ -2,6 +2,7 @@
 """Module that defines a sqaure classs with validated siZe."""
 
 
+
 class Square:
     """Defines a sqaure with validated size attribute."""
 
