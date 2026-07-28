@@ -1,24 +1,22 @@
 #!/usr/bin/python3
-"""Module that defines a sqaure classs with validated siZe."""
-
+"""Defines a module for Square with type/value validation."""
 
 
 class Square:
-    """Defines a sqaure with validated size attribute."""
+    """Class that defines a square and validates its size."""
 
-    def --init--(self, size=0):
-        """Intialize a new Square.
+    def __init__(self, size=0):
+        """Initialize a new Square instance.
 
         Args:
-        size (int): The size of the sqaure (default 0).
+            size (int): The size of the square (default 0).
 
         Raises:
-           TypeError: If size is not an integer
-           ValueError: If size is less than 0
-
+            TypeError: If size is not an integer.
+            ValueError: If size is less than 0.
         """
-        if not insinstance(size, int):
+        if type(size) is not int:
             raise TypeError("size must be an integer")
         if size < 0:
-            raise ValueError("size must be >=o")
-        self.--size = size
+            raise ValueError("size must be >= 0")
+        self.__size = size
