@@ -16,7 +16,19 @@ Testing area():
     ...
     Exception: area() is not implemented
 
+Testing integer_validator() missing arguments:
+    >>> bg.integer_validator()
+    Traceback (most recent call last):
+    ...
+    TypeError: BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+    >>> bg.integer_validator("age")
+    Traceback (most recent call last):
+    ...
+    TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
+
 Testing integer_validator() with valid integers:
+    >>> bg.integer_validator("age", 1)
     >>> bg.integer_validator("my_int", 12)
     >>> bg.integer_validator("width", 89)
 
@@ -26,20 +38,35 @@ Testing integer_validator() with non-integers (TypeError):
     ...
     TypeError: name must be an integer
 
-    >>> bg.integer_validator("is_active", True)
+    >>> bg.integer_validator("age", "4")
     Traceback (most recent call last):
     ...
-    TypeError: is_active must be an integer
+    TypeError: age must be an integer
+
+    >>> bg.integer_validator("age", (4,))
+    Traceback (most recent call last):
+    ...
+    TypeError: age must be an integer
+
+    >>> bg.integer_validator("age", [3])
+    Traceback (most recent call last):
+    ...
+    TypeError: age must be an integer
+
+    >>> bg.integer_validator("age", {3, 4})
+    Traceback (most recent call last):
+    ...
+    TypeError: age must be an integer
+
+    >>> bg.integer_validator("age", True)
+    Traceback (most recent call last):
+    ...
+    TypeError: age must be an integer
 
     >>> bg.integer_validator("ratio", 3.14)
     Traceback (most recent call last):
     ...
     TypeError: ratio must be an integer
-
-    >>> bg.integer_validator("items", [1, 2, 3])
-    Traceback (most recent call last):
-    ...
-    TypeError: items must be an integer
 
     >>> bg.integer_validator("data", None)
     Traceback (most recent call last):
@@ -52,7 +79,7 @@ Testing integer_validator() with values <= 0 (ValueError):
     ...
     ValueError: age must be greater than 0
 
-    >>> bg.integer_validator("distance", -4)
+    >>> bg.integer_validator("age", -4)
     Traceback (most recent call last):
     ...
-    ValueError: distance must be greater than 0
+    ValueError: age must be greater than 0
