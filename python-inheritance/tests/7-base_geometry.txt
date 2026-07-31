@@ -28,6 +28,12 @@ Testing integer_validator with non-integers (raises TypeError):
     [TypeError] price must be an integer
 
     >>> try:
+    ...     bg.integer_validator("age", {3, 4})
+    ... except Exception as e:
+    ...     print("[{}] {}".format(e.__class__.__name__, e))
+    [TypeError] age must be an integer
+
+    >>> try:
     ...     bg.integer_validator("is_active", True)
     ... except Exception as e:
     ...     print("[{}] {}".format(e.__class__.__name__, e))
@@ -44,6 +50,12 @@ Testing integer_validator with non-integers (raises TypeError):
     ... except Exception as e:
     ...     print("[{}] {}".format(e.__class__.__name__, e))
     [TypeError] data must be an integer
+
+    >>> try:
+    ...     bg.integer_validator("dict_data", {"a": 1})
+    ... except Exception as e:
+    ...     print("[{}] {}".format(e.__class__.__name__, e))
+    [TypeError] dict_data must be an integer
 
     >>> try:
     ...     bg.integer_validator("config", None)
