@@ -1,0 +1,43 @@
+The ``1-my_list`` module
+========================
+
+Using ``MyList``
+----------------
+
+Importing the class:
+    >>> MyList = __import__('1-my_list').MyList
+
+Testing normal list instantiation:
+    >>> my_list = MyList()
+    >>> print(my_list)
+    []
+
+Appending elements:
+    >>> my_list.append(1)
+    >>> my_list.append(4)
+    >>> my_list.append(2)
+    >>> my_list.append(3)
+    >>> my_list.append(5)
+    >>> print(my_list)
+    [1, 4, 2, 3, 5]
+
+Testing print_sorted():
+    >>> my_list.print_sorted()
+    [1, 2, 3, 4, 5]
+
+Checking original list remained unsorted:
+    >>> print(my_list)
+    [1, 4, 2, 3, 5]
+
+Testing empty list:
+    >>> empty_list = MyList()
+    >>> empty_list.print_sorted()
+    []
+
+Testing list with negative numbers:
+    >>> neg_list = MyList()
+    >>> neg_list.append(-1)
+    >>> neg_list.append(-5)
+    >>> neg_list.append(2)
+    >>> neg_list.print_sorted()
+    [-5, -1, 2]
